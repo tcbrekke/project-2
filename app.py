@@ -9,4 +9,6 @@ from config import api_key
 
 import requests
 
-url = f"https://www.quandl.com/api/v3/datasets/ZILLOW/"
+url = f"https://www.quandl.com/api/v3/datasets/ZILLOW/{AREA}"
+
+#Sample
