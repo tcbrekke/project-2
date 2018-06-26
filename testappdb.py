@@ -12,3 +12,5 @@ conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 city_sfr_df = pd.read_csv(city_sfr_csv)
 
 city_sfr_df.to_sql('city_sfr.sql', conn, if_exists = 'replace')
+
+print(pd.read_sql('city_sfr.sql').head())
