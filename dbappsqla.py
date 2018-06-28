@@ -15,6 +15,7 @@ county_single_family_csv = os.path.join("Resources", "County_Zhvi_SingleFamilyRe
 county_multi_family_csv = os.path.join("Resources", "County_Zri_AllHomesPlusMultifamilyCLEAN.csv")
 
 engine = create_engine(DATABASE_URL)
+connection = engine.connect()
 
 region_affordability_df = pd.read_csv(region_affordability_csv)
 city_single_family_df = pd.read_csv(city_single_family_csv)
@@ -22,6 +23,13 @@ county_single_family_df = pd.read_csv(county_single_family_csv)
 county_multi_family_df = pd.read_csv(county_multi_family_csv)
 
 region_affordability_df.to_sql('region_affordibility', engine, if_exists = 'replace')
+connection.execute("ALTER TABLE region_affordibility ADD PRIMARY KEY (index)")
+
 city_single_family_df.to_sql('city_single_family', engine, if_exists = 'replace')
+connection.execute("ALTER TABLE city_single_family ADD PRIMARY KEY (index)")
+
 county_single_family_df.to_sql('county_single_family', engine, if_exists = 'replace')
+connection.execute("ALTER TABLE county_single_family ADD PRIMARY KEY (index)")
+
 county_multi_family_df.to_sql('county_multi_family', engine, if_exists = 'replace')
+connection.execute("ALTER TABLE county_multi_family ADD PRIMARY KEY (index)")
