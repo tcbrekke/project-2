@@ -24,4 +24,7 @@ engine = create_engine("postgres://dfpdtekrylpjsy:f81dc88e3ae281c5952015a8cf9af3
 
 Base.prepare(engine, reflect=True)
 
-Base.classes.table1.__table__.columns.keys()
+region_affordability_db = Base.classes.region_affordability
+city_single_family_db = Base.classes.city_single_family
+county_single_family_db = Base.classes.county_single_family
+county_multi_family_db = Base.classes.county_multi_family
