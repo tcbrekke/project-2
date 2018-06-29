@@ -1,5 +1,6 @@
 import numpy as np 
 import pandas as pd
+import json
 
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -22,19 +23,21 @@ engine = create_engine("postgres://dfpdtekrylpjsy:f81dc88e3ae281c5952015a8cf9af3
 Base = automap_base()
 Base.prepare(engine, reflect=True)
 
-region_affordability_db = Base.classes.region_affordability
-city_single_family_db = Base.classes.city_single_family
-county_single_family_db = Base.classes.county_single_family
-county_multi_family_db = Base.classes.county_multi_family
+region_affordability_table = Base.classes.region_affordability
+city_single_family_table = Base.classes.city_single_family
+county_single_family_table = Base.classes.county_single_family
+county_multi_family_table = Base.classes.county_multi_family
 
 session = Session(engine)
 
 @app.route('/region_affordability')
 def ra():
-	results = session.query(region_affordability_db).all()
+	results = session.query(region_affordability_table).first()
 
 	region_affordability_list = list(np.ravel(results))
 	return jsonify(region_affordability_list)
+	# print(type(region_affordability_list))
+	# return json.dumps(region_affordability_list)
 
 @app.route('/city_single_family')
 def cisf():

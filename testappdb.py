@@ -4,19 +4,29 @@ import os
 from sqlalchemy import create_engine
 # DATABASE_URL = os.environ['DATABASE_URL']
 
-host = "localhost"
-user = "tcbrekke"
-database = "project2scratch"
-
 DATABASE_URL = f"postgresql://tcbrekke:password@localhost/project2scratch"
 
-city_sfr_csv = os.path.join("Resources", "City_Zhvi_SingleFamilyResidence(main)CLEAN.csv")
+region_affordability_csv = os.path.join("Resources", "Affordability_Wide_2018Q1_PublicCLEAN.csv")
+city_single_family_csv = os.path.join("Resources", "City_Zhvi_SingleFamilyResidence(main)CLEAN.csv")
+county_single_family_csv = os.path.join("Resources", "County_Zhvi_SingleFamilyResidenceCLEAN.csv")
+county_multi_family_csv = os.path.join("Resources", "County_Zri_AllHomesPlusMultifamilyCLEAN.csv")
 
 engine = create_engine(DATABASE_URL)
+connection = engine.connect()
 
-city_sfr_df = pd.read_csv(city_sfr_csv)
-city_sfr_df.head()
+region_affordability_df = pd.read_csv(region_affordability_csv)
+city_single_family_df = pd.read_csv(city_single_family_csv)
+county_single_family_df = pd.read_csv(county_single_family_csv)
+county_multi_family_df = pd.read_csv(county_multi_family_csv)
 
-city_sfr_df.to_sql('city_sfr', engine, if_exists = 'replace')
-pd.read_sql('city_sfr', engine).head()
-print(engine.table_names())
+region_affordability_df.to_sql('region_affordability', engine, if_exists = 'replace')
+connection.execute("ALTER TABLE region_affordability ADD PRIMARY KEY (index);")
+
+city_single_family_df.to_sql('city_single_family', engine, if_exists = 'replace')
+connection.execute("ALTER TABLE city_single_family ADD PRIMARY KEY (index);")
+
+county_single_family_df.to_sql('county_single_family', engine, if_exists = 'replace')
+connection.execute("ALTER TABLE county_single_family ADD PRIMARY KEY (index);")
+
+county_multi_family_df.to_sql('county_multi_family', engine, if_exists = 'replace')
+connection.execute("ALTER TABLE county_multi_family ADD PRIMARY KEY (index);")
