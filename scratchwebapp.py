@@ -15,7 +15,7 @@ from flask import Flask, render_template, jsonify, request, redirect
 
 # DATABASE_URL = os.environ['DATABASE_URL']
 
-# app = Flask(__name__)
+app = Flask(__name__)
 
 # db = SQLAlchemy(app)
 engine = create_engine("postgresql://tcbrekke:password@localhost/project2scratch")
@@ -32,54 +32,49 @@ county_multi_family_table = Base.classes.county_multi_family
 
 session = Session(engine)
 
-table = session.query(region_affordability_table).all()
+@app.route('/region_affordability')
+def ra():
+	# results = session.query(region_affordability_table)
+	results_df = pd.read_sql('region_affordability', connection)
 
-region_affordability_list = list(np.ravel(table))
-# ra_json = json.dumps(region_affordability_list)
-# ra_df = pd.read_sql(region_affordability_table, connection)
-# print(ra_df)
-# print(table)
-# print(region_affordability_list)
-# print(region_affordability_table)
-# print(json.dumps(connection.execute("SELECT * FROM region_affordability;")))
-def as_dict(self):
-       return {c.name: getattr(self, c.name) for c in self.__table__.columns}
-
-radf = (pd.read_sql('region_affordability', connection))
-print(radf.to_json(orient="index"))
-print(region_affordability_list)
+	return results_df.to_json(orient="index")
 
 
+	# region_affordability_list = list(np.ravel(results))
+	# return jsonify(region_affordability_list)
+	# print(type(region_affordability_list))
+	# return json.dumps(region_affordability_list)
 
-# @app.route('/region_affordability')
-# def ra():
-# 	results = session.query(region_affordability_table).first()
+@app.route('/city_single_family')
+def cisf():
+	# results = session.query(city_single_family_db).all()
 
-# 	region_affordability_list = list(np.ravel(results))
-# 	return jsonify(region_affordability_list)
-# 	# print(type(region_affordability_list))
-# 	# return json.dumps(region_affordability_list)
+	# city_single_family_list = list(np.ravel(results))
+	# return jsonify(city_single_family_list)
+	results_df = pd.read_sql('city_single_family', connection)
 
-# @app.route('/city_single_family')
-# def cisf():
-# 	results = session.query(city_single_family_table).all()
+	return results_df.to_json(orient="index")
 
-# 	city_single_family_list = list(np.ravel(results))
-# 	return jsonify(city_single_family_list)
 
-# @app.route('/county_single_family')
-# def cosf():
-# 	results = session.query(county_single_family_db).all()
+@app.route('/county_single_family')
+def cosf():
+	# results = session.query(county_single_family_db).all()
 
-# 	county_single_family_list = list(np.ravel(results))
-# 	return jsonify(county_single_family_list)
+	# county_single_family_list = list(np.ravel(results))
+	# return jsonify(county_single_family_list)
+	results_df = pd.read_sql('county_single_family', connection)
 
-# @app.route('/county_multi_family')
-# def comf():
-# 	results = session.query(county_multi_family_db).all()
+	return results_df.to_json(orient="index")
 
-# 	county_multi_family_list = list(np.ravel(results))
-# 	return jsonify(county_multi_family_list)
+@app.route('/county_multi_family')
+def comf():
+	# results = session.query(county_multi_family_db).all()
 
-# if __name__ == "__main__":
-#     app.run(debug=True)
+	# county_multi_family_list = list(np.ravel(results))
+	# return jsonify(county_multi_family_list)
+	results_df = pd.read_sql('county_multi_family', connection)
+
+	return results_df.to_json(orient="index")
+
+if __name__ == "__main__":
+    app.run(debug=True)
