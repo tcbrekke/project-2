@@ -20,13 +20,13 @@ county_single_family_df = pd.read_csv(county_single_family_csv)
 county_multi_family_df = pd.read_csv(county_multi_family_csv)
 
 region_affordability_df.to_sql('region_affordability', engine, if_exists = 'replace')
-connection.execute("ALTER TABLE region_affordability ADD PRIMARY KEY (index);")
+connection.execute("ALTER TABLE region_affordability ADD PRIMARY KEY (Index);")
 
 city_single_family_df.to_sql('city_single_family', engine, if_exists = 'replace')
-connection.execute("ALTER TABLE city_single_family ADD PRIMARY KEY (index);")
+connection.execute("ALTER TABLE city_single_family ADD PRIMARY KEY (Index);")
 
 county_single_family_df.to_sql('county_single_family', engine, if_exists = 'replace')
-connection.execute("ALTER TABLE county_single_family ADD PRIMARY KEY (index);")
+connection.execute("ALTER TABLE county_single_family ADD PRIMARY KEY (Index);")
 
 county_multi_family_df.to_sql('county_multi_family', engine, if_exists = 'replace')
-connection.execute("ALTER TABLE county_multi_family ADD PRIMARY KEY (index);")
+connection.execute("ALTER TABLE county_multi_family ADD PRIMARY KEY (Index);")
