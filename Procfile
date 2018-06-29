@@ -1,2 +1,1 @@
-worker: gunicorn dbappsqla.py
-web: gunicorn webbapp.py:app
+web: gunicorn app:app
