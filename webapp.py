@@ -24,6 +24,10 @@ connection = engine.connect()
 Base = automap_base()
 Base.prepare(engine, reflect=True)
 
+app.config['SQLALCHEMY_BINDS'] = False
+
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
+
 region_affordability_table = Base.classes.region_affordability
 city_single_family_table = Base.classes.city_single_family
 county_single_family_table = Base.classes.county_single_family
