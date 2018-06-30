@@ -15,9 +15,11 @@ from flask_sqlalchemy import SQLAlchemy
 
 DATABASE_URL = os.environ['DATABASE_URL']
 
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
+
 
 app = Flask(__name__)
+
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
 
 db = SQLAlchemy(app)
 engine = create_engine(DATABASE_URL)
