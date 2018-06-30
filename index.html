@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<title>Project 2</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+<link rel="stylesheet" href="style.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Roboto", sans-serif}
+</style>
+<body class="w3-light-grey">
+
+<!-- Top container -->
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+  <span class="w3-bar-item w3-right">Thom Brekke, Jessica Burgos, Jeffrey Lindow</span>
+</div>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-pale-blue w3-animate-left" style="z-index:3;width:280px;" id="mySidebar"><br>
+  <div class="w3-container w3-row">
+    <div class="w3-col s4">
+      <img src="../project2/housesale.jpeg" class="w3-circle w3-margin-right" style="width:80px">
+    </div>
+    <div class="w3-col s8 w3-bar">
+      <span>Welcome, <strong>Data Analytics Boot Camp!</strong></span><br>
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container">
+    <h5>Dashboard</h5>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bar-chart fa-fw"></i>  Overview</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-area-chart fa-fw"></i>  County</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  City</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Zip Code</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-building fa-fw"></i>  Neighborhood</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  Sales Price</a>
+  </div>
+</nav>
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+  <!-- Header -->
+  <header class="w3-container" style="padding-top:22px">
+    <h5><b></i>Project 2: San Francisco Bay Area Housing Prices</b></h5>
+  </header>
+
+  <div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-quarter">
+      <div class="w3-container w3-red w3-padding-16">
+          <div class="w3-left"><i class="fa fa-area-chart w3-xlarge"></i></div>
+        <div class="w3-right">
+          <h3>9</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Housing by County</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-blue w3-padding-16">
+          <div class="w3-left"><i class="fa fa-bullseye w3-xlarge"></i></div>
+        <div class="w3-right">
+          <h3>104</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Housing by City</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-teal w3-padding-16">
+          <div class="w3-left"><i class="fa fa-diamond w3-xlarge"></i></div>
+        <div class="w3-right">
+          <h3>187</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Housing by Zip Code</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-orange w3-text-white w3-padding-16">
+          <div class="w3-left"><i class="fa fa-university w3-xlarge"></i></div>
+        <div class="w3-right">
+          <h3>$$$</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Sales Price</h4>
+      </div>
+      
+    </div>
+  </div>
+
+
+  <div class="w3-panel">
+    <div class="w3-container halfsies" style="float:left">
+      <div class="w3-row-padding w3-margin-bottom">
+        <div class="w3">
+          <div class="w3-container w3-pale-yellow w3-padding-40">
+            <div class="w3-right">
+            </div>
+            <!-- <div class="w3-clear"></div> -->
+            <h6>In Project 2, we explore the change in housing prices in the Bay Area. The change in housing prices will be visualized on choropleth and heat maps. We will compare the change in housing prices to the inflation rate, the stock market, and local minimum wage laws. The story we hope to find in the data is the relationship between the relative strength of the economy, housing prices in certain geographic regions, and the relationship between booms and busts.</h6>
+          </div>
+        </div>
+
+      <!-- <div class="w3-twothird">
+        <h5>Layers</h5>
+        <table class="w3-table w3-striped w3-white">
+          <tr>
+            <td><i class="fa fa-money w3-text-blue w3-large"></i></td>
+            <td>Housing Prices vs Inflation Rate</td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-bar-chart-o w3-text-red w3-large"></i></td>
+            <td>Housing Prices vs Dow Jones Industrial Average</td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-bar-chart w3-text-yellow w3-large"></i></td>
+            <td>Housing Prices vs NASDAQ</td>
+          </tr>
+          </tr>
+        </table>
+      </div> -->
+      
+    </div>
+  </div>
+
+  <div class="w3-container halfsies" style="float:right">
+    <div class="w3"
+    <div style="float:right"</div>
+      <h5>Percentage Change in Select Cities Housing Prices</h5>
+      <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-pale-red">
+        <tr>
+          <td>San Francisco</td>
+          <td>65%</td>
+        </tr>
+        <tr>
+          <td>Oakland</td>
+          <td>15.7%</td>
+        </tr>
+        <tr>
+          <td>San Jose</td>
+          <td>5.6%</td>
+        </tr>
+        <tr>
+          <td>Berkeley</td>
+          <td>2.1%</td>
+        </tr>
+        <tr>
+          <td>Walnut Creek</td>
+          <td>1.9%</td>
+        </tr>
+        <tr>
+          <td>Dublin</td>
+          <td>1.5%</td>
+        </tr>
+      </table><br>
+      <button class="w3-button w3-dark-grey">More Cities  <i class="fa fa-arrow-right"></i></button>
+    </div>
+  </div>
+
+
+
+  <!-- End page content -->
+</div>
+<div class="w3-third">
+    <h5>Region Map</h5>
+    <img src="../project2/BayAreaMap.jpg" style="width:190%" alt="Bay Area Map">
+  </div>
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+    if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+        overlayBg.style.display = "none";
+    } else {
+        mySidebar.style.display = 'block';
+        overlayBg.style.display = "block";
+    }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+    overlayBg.style.display = "none";
+}
+</script>
+</body>
+
+<style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: black;
+        color: white;
+        text-align: center;
+    }
+</style>
+    
+<div class="footer">
+  <p>Project 2: San Francisco Bay Area Housing Prices</p>
+</div>
+
+</html>
