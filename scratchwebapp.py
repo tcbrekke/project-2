@@ -32,6 +32,11 @@ county_multi_family_table = Base.classes.county_multi_family
 
 session = Session(engine)
 
+@app.route('/')
+def index():
+    """Return the homepage."""
+    return render_template('index.html')
+
 @app.route('/region_affordability')
 def ra():
 	# results = session.query(region_affordability_table)
