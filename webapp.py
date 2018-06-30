@@ -15,6 +15,8 @@ from flask_sqlalchemy import SQLAlchemy
 
 DATABASE_URL = os.environ['DATABASE_URL']
 
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
+
 app = Flask(__name__)
 
 db = SQLAlchemy(app)
@@ -24,9 +26,6 @@ connection = engine.connect()
 Base = automap_base()
 Base.prepare(engine, reflect=True)
 
-app.config['SQLALCHEMY_BINDS'] = False
-
-app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 
 region_affordability_table = Base.classes.region_affordability
 city_single_family_table = Base.classes.city_single_family
