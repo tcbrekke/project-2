@@ -74,7 +74,7 @@ var map = L.map("map", {
     var geoJson;
     
     // Grabbing our GeoJSON data..
-    d3.map(myObject.jsonOne[0], function(data) {
+    d3.map(myObject.jsonOne, function(data) {
         console.log(data)
         // Creating a geoJSON layer with the retrieved data
         geoJson = L.geoJson(data, {
@@ -109,8 +109,10 @@ var map = L.map("map", {
             }
             });
             // Giving each feature a pop-up with information about that specific feature
-            layer.bindPopup("<h2>" + feature.properties.county + "</h2>" );
+            layer.bindPopup("<h2>" + feature.properties.county + "</h2><hr><h3>");
         }
         }).addTo(map);
+        // console.log(myObject.jsonTwo[0]);
     });
 });
+
