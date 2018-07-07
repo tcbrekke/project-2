@@ -101,7 +101,7 @@ d3.json("BayAreaCounties.geojson", function(data) {
         }
       });
       // Giving each feature a pop-up with information about that specific feature
-      layer.bindPopup("<h2>" + feature.properties.county + "</h2>");
+      layer.bindPopup("<h2>" + feature.properties.county + "</h2>" );
     }
   }).addTo(map);
 });
