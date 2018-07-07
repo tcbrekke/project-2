@@ -159,10 +159,16 @@ body {
 } */
 
 .halfsies {
-  width: 50% !important;
+  width: 17% !important;
+  position: relative;
   float: right;
 }
 
 .mappy {
   width: 100% !important;
 }
+
+.topfive {
+  float: right;
+}
+
