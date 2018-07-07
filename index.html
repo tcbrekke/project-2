@@ -18,7 +18,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Roboto", sans-serif}
   <span class="w3-bar-item w3-right">Thom Brekke, Jessica Burgos, Jeffrey Lindow</span>
 </div>
 
-<!-- Sidebar/menu -->
+<!-- Sidebar/menu
 <nav class="w3-sidebar w3-collapse w3-pale-blue w3-animate-left" style="z-index:3;width:280px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
     <div class="w3-col s4">
@@ -41,52 +41,68 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Roboto", sans-serif}
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-building fa-fw"></i>  Neighborhood</a>
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  Sales Price</a>
   </div>
-</nav>
+</nav> -->
 
 
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+<!-- Overlay effect when opening sidebar on small screens
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div> -->
 
 <!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+<!-- <div class="w3-main" style="margin-left:300px;margin-top:43px;"> -->
 
   <!-- Header -->
-  <header class="w3-container" style="padding-top:22px">
+  <header class="w3-container" style="padding-top:50px">
     <h5><b></i>Project 2: San Francisco Bay Area Housing Prices</b></h5>
   </header>
 
-  <div class="w3-row-padding w3-margin-bottom">
-    <div class="w3-quarter">
+
+  <div class="w3-third">
+      <div class="w3-container mappy" style="float:center">
+      <!-- <h5>Region Map</h5> -->
+      <img src="../project2/BayAreaMap.jpg" style="width:190%" alt="Bay Area Map">
+      </div>
+    </div>
+
+
+  <!-- <div class="w3-row-padding w3-margin-right"> -->
+    <div class="w3-third">
+      <div class="w3-container halfsies" style="float:right">
       <div class="w3-container w3-red w3-padding-16">
           <div class="w3-left"><i class="fa fa-area-chart w3-xlarge"></i></div>
         <div class="w3-right">
           <h3>9</h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>Housing by County</h4>
+        <h4>County</h4>
+      </div>
       </div>
     </div>
-    <div class="w3-quarter">
+    <div class="w3-third">
+        <div class="w3-container halfsies" style="float:right">
       <div class="w3-container w3-blue w3-padding-16">
           <div class="w3-left"><i class="fa fa-bullseye w3-xlarge"></i></div>
         <div class="w3-right">
           <h3>104</h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>Housing by City</h4>
+        <h4>City</h4>
+      </div>
       </div>
     </div>
-    <div class="w3-quarter">
+    <div class="w3-third">
+        <div class="w3-container halfsies" style="float:right">
       <div class="w3-container w3-teal w3-padding-16">
           <div class="w3-left"><i class="fa fa-diamond w3-xlarge"></i></div>
         <div class="w3-right">
           <h3>187</h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>Housing by Zip Code</h4>
+        <h4>Zip Code</h4>
+      </div>
       </div>
     </div>
-    <div class="w3-quarter">
+    <div class="w3-third">
+      <div class="w3-container halfsies" style="float:right">
       <div class="w3-container w3-orange w3-text-white w3-padding-16">
           <div class="w3-left"><i class="fa fa-university w3-xlarge"></i></div>
         <div class="w3-right">
@@ -95,13 +111,13 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Roboto", sans-serif}
         <div class="w3-clear"></div>
         <h4>Sales Price</h4>
       </div>
-      
+      </div>
     </div>
-  </div>
+  <!-- </div> -->
 
 
   <div class="w3-panel">
-    <div class="w3-container halfsies" style="float:left">
+    <div class="w3-container halfsies" style="float:right">
       <div class="w3-row-padding w3-margin-bottom">
         <div class="w3">
           <div class="w3-container w3-pale-yellow w3-padding-40">
@@ -159,24 +175,17 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Roboto", sans-serif}
           <td>Walnut Creek</td>
           <td>1.9%</td>
         </tr>
-        <tr>
-          <td>Dublin</td>
-          <td>1.5%</td>
-        </tr>
       </table><br>
-      <button class="w3-button w3-dark-grey">More Cities  <i class="fa fa-arrow-right"></i></button>
-    </div>
+      <!-- <button class="w3-button w3-dark-grey">More Cities  <i class="fa fa-arrow-right"></i></button>
+    </div> -->
   </div>
 
 
 
   <!-- End page content -->
 </div>
-<div class="w3-third">
-    <h5>Region Map</h5>
-    <img src="../project2/BayAreaMap.jpg" style="width:190%" alt="Bay Area Map">
-  </div>
-<script>
+
+<!-- <script>
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
 
@@ -200,7 +209,7 @@ function w3_close() {
     overlayBg.style.display = "none";
 }
 </script>
-</body>
+</body> -->
 
 <style>
     .footer {
