@@ -3,10 +3,7 @@ import pandas as pd
 import os
 from sqlalchemy import create_engine
 
-host = "localhost"
-user = "tcbrekke"
-database = "project2scratch"
-
+#Set DATABASE_URL to the database URL served by Heroku Postgres
 DATABASE_URL = os.environ['DATABASE_URL']
 
 region_affordability_csv = os.path.join("Resources", "Affordability_Wide_2018Q1_PublicCLEAN.csv")
