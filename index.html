@@ -24,6 +24,72 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Roboto", sans-serif}
   </header>
 
 
+  <!-- Dropdown Menu -->
+<div><select id="date-selector"></select>
+<script>var month_list = ["2010-12", "2011-03", "2011-06", "2011-09", "2011-12", "2012-03", "2012-06", "2012-09", "2012-12", "2013-03", "2013-06", "2013-09", "2013-12", "2014-03", "2014-06", "2014-09", "2014-12", "2015-03", "2015-06", "2015-09", "2015-12", "2016-03", "2016-06", "2016-09", "2016-12", "2017-03", "2017-06", "2017-09", "2017-12", "2018-03"];
+
+    var populate_dropdown = d3.select("body").selectAll("#date-selector").selectAll("option").data(month_list).enter().append("option").text(function(d) {
+      return d;
+    });
+    
+    var dd_value = d3.select("#date-selector").node().value; 
+    
+    console.log(dd_value);
+    
+    document.getElementById("date-selector").addEventListener("change", function() {
+      dd_value = d3.select("#date-selector").node().value;
+      console.log(dd_value);
+    }, false);
+  </script>
+
+  <style>
+    /* Dropdown Button */
+      .dropbtn {
+          background-color: #3498DB;
+          color: white;
+          padding: 16px;
+          font-size: 16px;
+          border: none;
+          cursor: pointer;
+      }
+      
+      /* Dropdown button on hover & focus */
+      .dropbtn:hover, .dropbtn:focus {
+          background-color: #2980B9;
+      }
+      
+      /* The container <div> - needed to position the dropdown content */
+      .dropdown {
+          position: relative;
+          display: inline-block;
+      }
+      
+      /* Dropdown Content (Hidden by Default) */
+      .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #f1f1f1;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+      }
+      
+      /* Links inside the dropdown */
+      .dropdown-content a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+      }
+      
+      /* Change color of dropdown links on hover */
+      .dropdown-content a:hover {background-color: #ddd}
+      
+      /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+      .show {display:block;}</style>
+</div>
+
+<!-- Sample Bay Area Map -->
   <div class="w3-third">
       <div class="w3-container mappy" style="float:center">
       <!-- <h5>Region Map</h5> -->
